@@ -2,7 +2,7 @@ import Drivers.DriverC;
 
 import java.io.Serializable;
 
-public class Bus extends Transport<DriverC> {
+public class Bus extends Transport<DriverC>{
 
     public enum NumberOfSeats {
         VERY_LITTLE(0, 10),
@@ -25,6 +25,7 @@ public class Bus extends Transport<DriverC> {
         public int getMinPlaces() {
             return minPlaces;
         }
+
 
         @Override
         public String toString() {
@@ -51,6 +52,11 @@ public class Bus extends Transport<DriverC> {
 
     public Bus(String brand, String model, int engineCapacity, DriverC driver) {
         super(brand, model, engineCapacity, driver);
+    }
+
+    @Override
+    boolean passDiagnostics() throws TransportTypeExeption {
+        throw new TransportTypeExeption();
     }
 
     @Override

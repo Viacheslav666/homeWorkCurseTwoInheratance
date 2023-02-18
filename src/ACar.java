@@ -1,18 +1,18 @@
-import Drivers.Driver;
 import Drivers.DriverB;
 import Util.UtilClass;
 
 import java.io.Serializable;
 
-public class ACar extends Transport <DriverB> {
+public class ACar extends Transport<DriverB> {
     private BodyTape bodyTape;
-   public enum BodyTape{
+
+    public enum BodyTape {
         SEDAN("Седан"),
         HATCHBACK("Седан"),
         COUPE("Седан"),
         UNIVERSAL("Седан"),
         SUF("Седан"),
-        CROSSOVER("Седан")   ,
+        CROSSOVER("Седан"),
         PICKUP("Седан"),
         FAN("Седан"),
         MINIVAN("Седан");
@@ -25,14 +25,16 @@ public class ACar extends Transport <DriverB> {
         public String getNameBodyTape() {
             return nameBodyTape;
         }
+
         @Override
         public String toString() {
             return "bodyTape{" +
-                    "bodyTape" + this.name()  + "\n" +
+                    "bodyTape" + this.name() + "\n" +
                     "name='" + getNameBodyTape() + '\'' +
                     '}';
         }
     }
+
     public ACar(String brand, String model, int engineCapacity, DriverB driver, BodyTape bodyTape) {
         super(brand, model, engineCapacity, driver);
 
@@ -40,7 +42,7 @@ public class ACar extends Transport <DriverB> {
 
     @Override
     public Type getType() {
-        return Type.ACAR ;
+        return Type.ACAR;
     }
 
     @Override
@@ -66,6 +68,13 @@ public class ACar extends Transport <DriverB> {
     }
 
     @Override
+    boolean passDiagnostics() throws TransportTypeExeption {
+        return true;
+    }
+
+
+
+    @Override
     void startMoving() {
         System.out.println("Начало движения");
     }
@@ -81,10 +90,10 @@ public class ACar extends Transport <DriverB> {
     }
 
     @Override
-    public void maxSpeed(){
+    public void maxSpeed() {
         int minBound = 40;
         int maxBound = 140;
-        int maxSpeed = (int)(minBound + (maxBound - minBound)*Math.random());
+        int maxSpeed = (int) (minBound + (maxBound - minBound) * Math.random());
         System.out.println("Максимальная скорость = " + maxSpeed);
     }
 

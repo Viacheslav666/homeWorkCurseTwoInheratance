@@ -90,6 +90,25 @@ public class Main {
         System.out.println(s);
         System.out.println(lada.getType());
         lada.printType();
+        lada.printType();
+        System.out.println(kamaz3.getEngineCapacity());
+        printInfo(kamaz1);
+
+
+        try {
+            checkTransport(luaz, luna);
+        } catch (TransportTypeExeption e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void checkTransport(Transport... transports) throws TransportTypeExeption {
+        for (Transport transport: transports){
+            System.out.println(transports.length);
+        }
+
+
     }
 
     public static void printInfo(Transport<?> transport) {

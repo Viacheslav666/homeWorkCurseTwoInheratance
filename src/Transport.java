@@ -8,6 +8,7 @@ public abstract class Transport<T extends Driver> implements Competingoable {
     private T driver;
 
 
+
     public Transport() {
     }
 
@@ -18,11 +19,13 @@ public abstract class Transport<T extends Driver> implements Competingoable {
         setDriver(driver);
     }
 
+    abstract boolean passDiagnostics() throws TransportTypeExeption; ;
+
     abstract void printType(Type name);
 
     abstract Type getType();
 
-    abstract void  printType();
+    abstract void printType();
 
 
     public T getDriver() {
@@ -41,7 +44,9 @@ public abstract class Transport<T extends Driver> implements Competingoable {
         return brand;
     }
 
-    ;
+    public int getEngineCapacity() {
+        return engineCapacity;
+    }
 
     public String getModel() {
         return model;

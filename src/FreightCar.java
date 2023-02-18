@@ -81,23 +81,28 @@ public class FreightCar extends Transport<DriverD> {
     }
 
     @Override
-    public void maxSpeed() {
-        int minBound = 40;
-        int maxBound = 140;
-        int maxSpeed = (int) (minBound + (maxBound - minBound) * Math.random());
-        System.out.println("Максимальная скорость = " + maxSpeed);
-
+    boolean passDiagnostics() throws TransportTypeExeption {
+        return false;
     }
 
     @Override
-    Type getType() {
-        return Type.FREIGHTCAR;
-    }
+        public void maxSpeed () {
+            int minBound = 40;
+            int maxBound = 140;
+            int maxSpeed = (int) (minBound + (maxBound - minBound) * Math.random());
+            System.out.println("Максимальная скорость = " + maxSpeed);
 
-    @Override
-    void printType() {
-        String message = "Данных по транспортному средству недостаточно";
-        Serializable serializable = getType() == null ? message : getType();
-        System.out.println(serializable);
+        }
+
+        @Override
+        Type getType () {
+            return Type.FREIGHTCAR;
+        }
+
+        @Override
+        void printType () {
+            String message = "Данных по транспортному средству недостаточно";
+            Serializable serializable = getType() == null ? message : getType();
+            System.out.println(serializable);
+        }
     }
-}
