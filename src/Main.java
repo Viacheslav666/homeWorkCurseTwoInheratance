@@ -6,7 +6,7 @@ import Drivers.DriverD;
 public class Main {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws TransportTypeExeption {
 
         DriverB driverB = new DriverB("Volodia",
                 false,
@@ -16,7 +16,7 @@ public class Main {
                 20, "1");
         DriverD driverD = new DriverD("Volodia",
                 false,
-                  20, "1");
+                20, "1");
 
 
         ACar lada = new ACar(
@@ -92,26 +92,31 @@ public class Main {
         lada.printType();
         lada.printType();
         System.out.println(kamaz3.getEngineCapacity());
-        printInfo(kamaz1);
+        checkTransport(luna, luna);
 
 
-        try {
-            checkTransport(luaz, luna);
-        } catch (TransportTypeExeption e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-        }
     }
 
     public static void checkTransport(Transport... transports) throws TransportTypeExeption {
-        for (Transport transport: transports){
-            System.out.println(transports.length);
+        for (Transport transport : transports) {
+            if (!transport.passDiagnostics()) {
+                try {
+                    throw new Exception(transport.getModel() + transport.getModel() + " Не прошел проверку");
+                } catch (TransportTypeExeption e) {
+                    e.printStackTrace();
+                    System.out.println(e.getMessage());
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+
+                System.out.println(transports.length);
+            }
+
+
+        }
+    }
+        public static void printInfo (Transport <?> transport){
+            System.out.println(transport.getDriver() + transport.getBrand());
         }
 
-
-    }
-
-    public static void printInfo(Transport<?> transport) {
-        System.out.println(transport.getDriver() + transport.getBrand());
-    }
 }

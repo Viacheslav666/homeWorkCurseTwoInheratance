@@ -55,8 +55,9 @@ public class Bus extends Transport<DriverC>{
     }
 
     @Override
-    boolean passDiagnostics() throws TransportTypeExeption {
-        throw new TransportTypeExeption();
+   public boolean passDiagnostics() throws TransportTypeExeption {
+        throw new TransportTypeExeption("Автобусы не проходят проверку");
+
     }
 
     @Override
