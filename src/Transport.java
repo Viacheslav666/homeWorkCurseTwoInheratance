@@ -1,6 +1,7 @@
 import Drivers.Driver;
 import Util.UtilClass;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +20,7 @@ public abstract class Transport<T extends Driver> implements Competingoable {
         setDriver(driver);
         this.mechanicsList = mechanicsList;
     }
+
 
     abstract boolean passDiagnostics() throws TransportTypeExeption;
 
