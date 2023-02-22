@@ -1,10 +1,11 @@
 import Drivers.DriverD;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class FreightCar extends Transport<DriverD> {
-    public FreightCar(String brand, String model, int engineCapacity, DriverD driver, CarryingCapacity carryingCapacity) {
-        super(brand, model, engineCapacity, driver);
+    public FreightCar(String brand, String model, int engineCapacity, DriverD driver, CarryingCapacity carryingCapacity, List<Mechanics> mechanicsList) {
+        super(brand, model, engineCapacity, driver, mechanicsList );
     }
 
     public enum CarryingCapacity {
@@ -19,9 +20,6 @@ public class FreightCar extends Transport<DriverD> {
             this.weightMax = weightMax;
         }
 
-
-        CarryingCapacity() {
-        }
 
         public float getWeightMax() {
             return weightMax;
@@ -79,25 +77,34 @@ public class FreightCar extends Transport<DriverD> {
         System.out.println("Лучшие время = " + time);
 
     }
-
     @Override
-    public void maxSpeed() {
-        int minBound = 40;
-        int maxBound = 140;
-        int maxSpeed = (int) (minBound + (maxBound - minBound) * Math.random());
-        System.out.println("Максимальная скорость = " + maxSpeed);
-
+    void printNameDriverNameMechanic() {
+        System.out.println("Водителя зовут " + getDriver() + "Механика зовут " + getMechanicsList());
     }
 
     @Override
-    Type getType() {
-        return Type.FREIGHTCAR;
+    boolean passDiagnostics() throws TransportTypeExeption {
+        return true;
     }
 
     @Override
-    void printType() {
-        String message = "Данных по транспортному средству недостаточно";
-        Serializable serializable = getType() == null ? message : getType();
-        System.out.println(serializable);
+        public void maxSpeed () {
+            int minBound = 40;
+            int maxBound = 140;
+            int maxSpeed = (int) (minBound + (maxBound - minBound) * Math.random());
+            System.out.println("Максимальная скорость = " + maxSpeed);
+
+        }
+
+        @Override
+        Type getType () {
+            return Type.FREIGHTCAR;
+        }
+
+        @Override
+        void printType () {
+            String message = "Данных по транспортному средству недостаточно";
+            Serializable serializable = getType() == null ? message : getType();
+            System.out.println(serializable);
+        }
     }
-}

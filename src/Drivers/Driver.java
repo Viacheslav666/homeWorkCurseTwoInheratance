@@ -39,9 +39,9 @@ public abstract class Driver {
     @Override
     public String toString() {
         return "Driver{" +
-                "nameDriver='" + nameDriver + '\'' +
-                ", havingADriverLicense=" + havingADriverLicense +
-                ", experience=" + experience +
+                "Имя водителя'" + nameDriver + '\'' +
+                ", Лицензия " + havingADriverLicense +
+                ", Стаж " + experience +
                 '}';
     }
 }

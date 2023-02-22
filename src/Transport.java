@@ -1,28 +1,43 @@
 import Drivers.Driver;
 import Util.UtilClass;
 
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Transport<T extends Driver> implements Competingoable {
     public String brand;
     private String model;
     private int engineCapacity;
     private T driver;
+    private List<Mechanics> mechanicsList;
 
 
-    public Transport() {
-    }
-
-    public Transport(String brand, String model, int engineCapacity, T driver) {
+    public Transport(String brand, String model, int engineCapacity, T driver, List<Mechanics> mechanicsList) {
         this.brand = UtilClass.checkingError(brand, "default");
         this.model = UtilClass.checkingError(model, "default");
         this.engineCapacity = UtilClass.checkingErrorInt(engineCapacity, 96);
         setDriver(driver);
+        this.mechanicsList = mechanicsList;
     }
 
+
+    abstract boolean passDiagnostics() throws TransportTypeExeption;
+
+   abstract void printNameDriverNameMechanic();
     abstract void printType(Type name);
+
+    List<Mechanics> mechanics = new ArrayList<>();
+    Mechanics volodia = new Mechanics("Vova", "Volvo");
+
+
+    public List<Mechanics> getMechanicsList() {
+        return mechanicsList;
+    }
 
     abstract Type getType();
 
-    abstract void  printType();
+    abstract void printType();
 
 
     public T getDriver() {
@@ -41,7 +56,9 @@ public abstract class Transport<T extends Driver> implements Competingoable {
         return brand;
     }
 
-    ;
+    public int getEngineCapacity() {
+        return engineCapacity;
+    }
 
     public String getModel() {
         return model;
