@@ -102,6 +102,12 @@ public class Main {
         System.out.println(kamaz3.getEngineCapacity());
         checkTransport(kamaz2);
         luaz.printNameDriverNameMechanic();
+        ServiceStation  nik = new ServiceStation();
+        nik.addTransport(luaz);
+        nik.addTransport(kamaz1);
+        nik.carryOutATechnicalInspection(luaz);
+        nik.carryOutATechnicalInspection(kamaz1);
+
 
 
     }
