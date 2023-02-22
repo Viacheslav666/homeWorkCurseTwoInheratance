@@ -1,10 +1,11 @@
 import Drivers.DriverD;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class FreightCar extends Transport<DriverD> {
-    public FreightCar(String brand, String model, int engineCapacity, DriverD driver, CarryingCapacity carryingCapacity) {
-        super(brand, model, engineCapacity, driver);
+    public FreightCar(String brand, String model, int engineCapacity, DriverD driver, CarryingCapacity carryingCapacity, List<Mechanics> mechanicsList) {
+        super(brand, model, engineCapacity, driver, mechanicsList );
     }
 
     public enum CarryingCapacity {
@@ -19,9 +20,6 @@ public class FreightCar extends Transport<DriverD> {
             this.weightMax = weightMax;
         }
 
-
-        CarryingCapacity() {
-        }
 
         public float getWeightMax() {
             return weightMax;
@@ -79,10 +77,14 @@ public class FreightCar extends Transport<DriverD> {
         System.out.println("Лучшие время = " + time);
 
     }
+    @Override
+    void printNameDriverNameMechanic() {
+        System.out.println("Водителя зовут " + getDriver() + "Механика зовут " + getMechanicsList());
+    }
 
     @Override
     boolean passDiagnostics() throws TransportTypeExeption {
-        return false;
+        return true;
     }
 
     @Override

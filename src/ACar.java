@@ -2,9 +2,18 @@ import Drivers.DriverB;
 import Util.UtilClass;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ACar extends Transport<DriverB> {
+public class ACar extends Transport<DriverB>{
     private BodyTape bodyTape;
+
+    public ACar(String brand, String model, int engineCapacity, DriverB driver,BodyTape bodyTape , List<Mechanics> mechanicsList) {
+        super(brand, model, engineCapacity, driver, mechanicsList);
+        this.bodyTape = bodyTape;
+    }
+
+
 
     public enum BodyTape {
         SEDAN("Седан"),
@@ -33,12 +42,10 @@ public class ACar extends Transport<DriverB> {
                     "name='" + getNameBodyTape() + '\'' +
                     '}';
         }
-    }
-
-    public ACar(String brand, String model, int engineCapacity, DriverB driver, BodyTape bodyTape) {
-        super(brand, model, engineCapacity, driver);
 
     }
+
+
 
     @Override
     public Type getType() {
@@ -50,6 +57,11 @@ public class ACar extends Transport<DriverB> {
         String message = "Данных по транспортному средству недостаточно";
         Serializable serializable = getType() == null ? message : getType();
         System.out.println(serializable);
+    }
+
+    @Override
+    void printNameDriverNameMechanic() {
+        System.out.println("Водителя зовут " + getDriver() + "Механика зовут " + getMechanicsList());
     }
 
     @Override

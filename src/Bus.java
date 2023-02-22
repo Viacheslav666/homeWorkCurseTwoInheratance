@@ -1,6 +1,7 @@
 import Drivers.DriverC;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Bus extends Transport<DriverC>{
 
@@ -50,8 +51,8 @@ public class Bus extends Transport<DriverC>{
     }
 
 
-    public Bus(String brand, String model, int engineCapacity, DriverC driver) {
-        super(brand, model, engineCapacity, driver);
+    public Bus(String brand, String model, int engineCapacity, DriverC driver, List<Mechanics> mechanicsList) {
+        super(brand, model, engineCapacity, driver,mechanicsList );
     }
 
     @Override
@@ -59,14 +60,16 @@ public class Bus extends Transport<DriverC>{
         throw new TransportTypeExeption("Автобусы не проходят проверку");
 
     }
+    @Override
+    void printNameDriverNameMechanic() {
+        System.out.println("Водителя зовут " + getDriver() + "Механика зовут " + getMechanicsList());
+    }
 
     @Override
     void printType(Type name) {
 
     }
 
-    public Bus() {
-    }
 
     @Override
     void startMoving() {
