@@ -2,22 +2,26 @@
 import java.util.Queue;
 
 public class ServiceStation {
-    private Queue<Transport> queue;
+    private Queue<String> queue;
 
 
-    public  ServiceStation(Queue<Transport> queue) {
+    public  ServiceStation(Queue<String> queue) {
         this.queue = queue;
 
     }
+
+
+
+
 
     public void addTransport(Transport auto){
         if (auto != null) {
             System.out.println("Введите автомобиль");
         }
-        queue.offer(auto);
+        queue.offer(String.valueOf(auto));
     }
     public  void  carryOutATechnicalInspection(Transport auto){
-        for(Transport transport: queue){
+        for(String transport: queue){
             System.out.println("проходим ТО");
             queue.poll();
         }

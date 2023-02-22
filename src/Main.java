@@ -2,11 +2,12 @@ import Drivers.DriverB;
 import Drivers.DriverC;
 import Drivers.DriverD;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
+
+    private static Queue<ServiceStation> LinkedList;
 
     public static void main(String[] args)  {
 
@@ -89,6 +90,8 @@ public class Main {
         List<Transport> list = new ArrayList();
         List.of(kamaz2, kamaz3, kamaz1, kamaz, luaz, luna2, luna3, luna4, luna, vazik, vaz);
 
+
+
         System.out.println(list);
 
         printInfo(lada1);
@@ -100,6 +103,9 @@ public class Main {
         System.out.println(kamaz3.getEngineCapacity());
         checkTransport(kamaz2);
         luaz.printNameDriverNameMechanic();
+        Queue<String> nik = new LinkedList<>();
+        nik.offer("Володя");
+        nik.offer("Петр");
 
     }
 
