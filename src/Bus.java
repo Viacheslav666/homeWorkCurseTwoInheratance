@@ -61,6 +61,10 @@ public class Bus extends Transport<DriverC>{
 
     }
     @Override
+    boolean queueCheck(Transport auto) throws TransportTypeExeption {
+        return false;}
+
+    @Override
     void printNameDriverNameMechanic() {
         System.out.println("Водителя зовут " + getDriver() + "Механика зовут " + getMechanicsList());
     }

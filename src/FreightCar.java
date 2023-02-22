@@ -5,7 +5,7 @@ import java.util.List;
 
 public class FreightCar extends Transport<DriverD> {
     public FreightCar(String brand, String model, int engineCapacity, DriverD driver, CarryingCapacity carryingCapacity, List<Mechanics> mechanicsList) {
-        super(brand, model, engineCapacity, driver, mechanicsList );
+        super(brand, model, engineCapacity, driver, mechanicsList);
     }
 
     public enum CarryingCapacity {
@@ -77,6 +77,7 @@ public class FreightCar extends Transport<DriverD> {
         System.out.println("Лучшие время = " + time);
 
     }
+
     @Override
     void printNameDriverNameMechanic() {
         System.out.println("Водителя зовут " + getDriver() + "Механика зовут " + getMechanicsList());
@@ -88,23 +89,28 @@ public class FreightCar extends Transport<DriverD> {
     }
 
     @Override
-        public void maxSpeed () {
-            int minBound = 40;
-            int maxBound = 140;
-            int maxSpeed = (int) (minBound + (maxBound - minBound) * Math.random());
-            System.out.println("Максимальная скорость = " + maxSpeed);
-
-        }
-
-        @Override
-        Type getType () {
-            return Type.FREIGHTCAR;
-        }
-
-        @Override
-        void printType () {
-            String message = "Данных по транспортному средству недостаточно";
-            Serializable serializable = getType() == null ? message : getType();
-            System.out.println(serializable);
-        }
+    boolean queueCheck(Transport auto) throws TransportTypeExeption {
+        return true;
     }
+
+    @Override
+    public void maxSpeed() {
+        int minBound = 40;
+        int maxBound = 140;
+        int maxSpeed = (int) (minBound + (maxBound - minBound) * Math.random());
+        System.out.println("Максимальная скорость = " + maxSpeed);
+
+    }
+
+    @Override
+    Type getType() {
+        return Type.FREIGHTCAR;
+    }
+
+    @Override
+    void printType() {
+        String message = "Данных по транспортному средству недостаточно";
+        Serializable serializable = getType() == null ? message : getType();
+        System.out.println(serializable);
+    }
+}

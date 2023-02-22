@@ -9,7 +9,7 @@ public class Main {
 
     private static Queue<ServiceStation> LinkedList;
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws TransportTypeExeption {
 
 
         DriverB driverB = new DriverB("Volodia",
@@ -78,7 +78,7 @@ public class Main {
                 "kamaz",
                 "666",
                 1000, driverD,
-                FreightCar.CarryingCapacity.n1,List.of(new Mechanics("Mitia", "Reno")));
+                FreightCar.CarryingCapacity.n1, List.of(new Mechanics("Mitia", "Reno")));
         FreightCar kamaz2 = new FreightCar(
                 "kamaz",
                 "666",
@@ -86,10 +86,9 @@ public class Main {
         FreightCar kamaz3 = new FreightCar(
                 "kamaz",
                 "666",
-                1000, driverD, FreightCar.CarryingCapacity.n1,List.of(new Mechanics("Mitia", "Reno")));
+                1000, driverD, FreightCar.CarryingCapacity.n1, List.of(new Mechanics("Mitia", "Reno")));
         List<Transport> list = new ArrayList();
         List.of(kamaz2, kamaz3, kamaz1, kamaz, luaz, luna2, luna3, luna4, luna, vazik, vaz);
-
 
 
         System.out.println(list);
@@ -103,9 +102,7 @@ public class Main {
         System.out.println(kamaz3.getEngineCapacity());
         checkTransport(kamaz2);
         luaz.printNameDriverNameMechanic();
-        Queue<String> nik = new LinkedList<>();
-        nik.offer("Володя");
-        nik.offer("Петр");
+
 
     }
 

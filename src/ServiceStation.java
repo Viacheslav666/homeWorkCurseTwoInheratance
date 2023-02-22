@@ -1,33 +1,36 @@
 
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class ServiceStation {
-    private Queue<String> queue;
+    private Queue<Transport> queue = new LinkedList<>();
 
 
-    public  ServiceStation(Queue<String> queue) {
+    public ServiceStation(Queue<Transport> queue) {
         this.queue = queue;
 
     }
 
 
-
-
-
-    public void addTransport(Transport auto){
+    public void addTransport(Transport auto) {
         if (auto != null) {
             System.out.println("Введите автомобиль");
         }
-        queue.offer(String.valueOf(auto));
+        queue.add((Transport) auto);
     }
-    public  void  carryOutATechnicalInspection(Transport auto){
-        for(String transport: queue){
-            System.out.println("проходим ТО");
-            queue.poll();
-        }
-        }
 
+    public Transport carryOutATechnicalInspection(Transport auto) throws TransportTypeExeption {
+        while (queue.isEmpty()) {
+            if (auto.queueCheck(auto)) {
+                System.out.println("проходим ТО");
+                queue.poll();
+            }
+        }
+        return auto;
     }
+
+
+}
 
 
 
