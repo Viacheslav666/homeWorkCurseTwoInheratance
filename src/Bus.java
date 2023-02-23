@@ -3,7 +3,7 @@ import Drivers.DriverC;
 import java.io.Serializable;
 import java.util.List;
 
-public class Bus extends Transport<DriverC>{
+public class Bus extends Transport<DriverC> {
 
     public enum NumberOfSeats {
         VERY_LITTLE(0, 10),
@@ -52,17 +52,19 @@ public class Bus extends Transport<DriverC>{
 
 
     public Bus(String brand, String model, int engineCapacity, DriverC driver, List<Mechanics> mechanicsList) {
-        super(brand, model, engineCapacity, driver,mechanicsList );
+        super(brand, model, engineCapacity, driver, mechanicsList);
     }
 
     @Override
-   public boolean passDiagnostics() throws TransportTypeExeption {
+    public boolean passDiagnostics() throws TransportTypeExeption {
         throw new TransportTypeExeption("Автобусы не проходят проверку");
 
     }
+
     @Override
-    boolean queueCheck(Transport auto) throws TransportTypeExeption {
-        return false;}
+    boolean isDiagnosticApplicable() throws TransportTypeExeption {
+        return false;
+    }
 
     @Override
     void printNameDriverNameMechanic() {

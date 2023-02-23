@@ -27,25 +27,27 @@ public class ServiceStation {
         queue = new LinkedList<>();
     }
 
-    public void addTransport(Transport<?> auto) {
-        if (auto != null) {
-            queue.add((Transport<?>) auto);
+    public void addTransport(Transport<?> auto) throws TransportTypeExeption {
+        if ((auto != null) && auto.isDiagnosticApplicable()) {
+            queue.offer(auto);
         }
 
     }
 
-    public void carryOutATechnicalInspection(Transport<?> auto) throws TransportTypeExeption {
+    public void carryOutATechnicalInspection() {
         while (queue.isEmpty()) {
-            if (auto.queueCheck(auto)) {
-                System.out.println("проходим ТО");
                 queue.poll();
+            System.out.println(queue);
             }
-        }System.out.println("Автобусы не участвуют");
-
-
     }
 
 
+    @Override
+    public String toString() {
+        return "Сервисная станция{" +
+                "Очередь транспорта=" + queue +
+                '}';
+    }
 }
 
 

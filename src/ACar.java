@@ -85,7 +85,7 @@ public class ACar extends Transport<DriverB> {
     }
 
     @Override
-    boolean queueCheck(Transport auto) throws TransportTypeExeption {
+    boolean isDiagnosticApplicable() throws TransportTypeExeption {
         return true;
     }
 

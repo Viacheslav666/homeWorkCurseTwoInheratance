@@ -22,15 +22,12 @@ public abstract class Transport<T extends Driver> implements Competingoable {
 
 
     abstract boolean passDiagnostics() throws TransportTypeExeption;
-    abstract boolean queueCheck(Transport auto) throws TransportTypeExeption;
 
-   abstract void printNameDriverNameMechanic();
+    abstract boolean isDiagnosticApplicable() throws TransportTypeExeption;
+
+    abstract void printNameDriverNameMechanic();
+
     abstract void printType(Type name);
-
-
-    List<Mechanics> mechanics = new ArrayList<>();
-    Mechanics volodia = new Mechanics("Vova", "Volvo");
-
 
     public List<Mechanics> getMechanicsList() {
         return mechanicsList;
@@ -70,8 +67,6 @@ public abstract class Transport<T extends Driver> implements Competingoable {
     public void setBrand(String brand) {
         this.brand = brand;
     }
-
-    ;
 
     @Override
     public String toString() {

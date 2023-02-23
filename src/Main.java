@@ -103,10 +103,10 @@ public class Main {
         checkTransport(kamaz2);
         luaz.printNameDriverNameMechanic();
         ServiceStation  nik = new ServiceStation();
-        nik.addTransport(luaz);
+        nik.addTransport(luna);
         nik.addTransport(kamaz1);
-        nik.carryOutATechnicalInspection(luaz);
-        nik.carryOutATechnicalInspection(kamaz1);
+        nik.addTransport(lada1);
+        nik.carryOutATechnicalInspection();
 
 
 
