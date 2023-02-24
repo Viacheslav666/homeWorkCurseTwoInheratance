@@ -1,3 +1,4 @@
+import Drivers.Driver;
 import Drivers.DriverB;
 import Drivers.DriverC;
 import Drivers.DriverD;
@@ -21,6 +22,7 @@ public class Main {
         DriverD driverD = new DriverD("Volodia",
                 false,
                 20, "1");
+
 
         ACar lada = new ACar(
                 "Lada",
@@ -107,6 +109,13 @@ public class Main {
         nik.addTransport(kamaz1);
         nik.addTransport(lada1);
         nik.carryOutATechnicalInspection();
+        Set <Driver> drivers = new HashSet<>();
+        drivers.add(driverB);
+        drivers.add(driverC);
+        drivers.add(driverD);
+        drivers.add(driverB);
+        System.out.println(Arrays.toString(drivers.toArray()));
+
 
 
 
