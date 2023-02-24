@@ -114,6 +114,7 @@ public class Main {
         drivers.add(driverC);
         drivers.add(driverD);
         drivers.add(driverB);
+        drivers.add(driverB);
         System.out.println(Arrays.toString(drivers.toArray()));
 
 
