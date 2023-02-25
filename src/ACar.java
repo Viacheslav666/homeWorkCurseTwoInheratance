@@ -2,10 +2,10 @@ import Drivers.DriverB;
 import Util.UtilClass;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class ACar extends Transport<DriverB>{
+public class ACar extends Transport<DriverB> {
     private BodyTape bodyTape;
 
     public ACar(String brand, String model, int engineCapacity, DriverB driver,BodyTape bodyTape , List<Mechanics> mechanicsList) {
@@ -84,7 +84,10 @@ public class ACar extends Transport<DriverB>{
         return true;
     }
 
-
+    @Override
+    boolean isDiagnosticApplicable() throws TransportTypeExeption {
+        return true;
+    }
 
     @Override
     void startMoving() {

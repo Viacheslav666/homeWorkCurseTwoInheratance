@@ -1,14 +1,16 @@
+import Drivers.Driver;
 import Drivers.DriverB;
 import Drivers.DriverC;
 import Drivers.DriverD;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
 
-    public static void main(String[] args)  {
+    private static Queue<ServiceStation> LinkedList;
+
+    public static void main(String[] args) throws TransportTypeExeption {
 
 
         DriverB driverB = new DriverB("Volodia",
@@ -20,6 +22,7 @@ public class Main {
         DriverD driverD = new DriverD("Volodia",
                 false,
                 20, "1");
+
 
         ACar lada = new ACar(
                 "Lada",
@@ -77,7 +80,7 @@ public class Main {
                 "kamaz",
                 "666",
                 1000, driverD,
-                FreightCar.CarryingCapacity.n1,List.of(new Mechanics("Mitia", "Reno")));
+                FreightCar.CarryingCapacity.n1, List.of(new Mechanics("Mitia", "Reno")));
         FreightCar kamaz2 = new FreightCar(
                 "kamaz",
                 "666",
@@ -85,9 +88,10 @@ public class Main {
         FreightCar kamaz3 = new FreightCar(
                 "kamaz",
                 "666",
-                1000, driverD, FreightCar.CarryingCapacity.n1,List.of(new Mechanics("Mitia", "Reno")));
+                1000, driverD, FreightCar.CarryingCapacity.n1, List.of(new Mechanics("Mitia", "Reno")));
         List<Transport> list = new ArrayList();
         List.of(kamaz2, kamaz3, kamaz1, kamaz, luaz, luna2, luna3, luna4, luna, vazik, vaz);
+
 
         System.out.println(list);
 
@@ -100,6 +104,21 @@ public class Main {
         System.out.println(kamaz3.getEngineCapacity());
         checkTransport(kamaz2);
         luaz.printNameDriverNameMechanic();
+        ServiceStation  nik = new ServiceStation();
+        nik.addTransport(luna);
+        nik.addTransport(kamaz1);
+        nik.addTransport(lada1);
+        nik.carryOutATechnicalInspection();
+        Set <Driver> drivers = new HashSet<>();
+        drivers.add(driverB);
+        drivers.add(driverC);
+        drivers.add(driverD);
+        drivers.add(driverB);
+        drivers.add(driverB);
+        System.out.println(Arrays.toString(drivers.toArray()));
+
+
+
 
     }
 
