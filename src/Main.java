@@ -16,10 +16,10 @@ public class Main {
         DriverB driverB = new DriverB("Volodia",
                 false,
                 20, "1");
-        DriverC driverC = new DriverC("Volodia",
+        DriverC driverC = new DriverC("Mihail",
                 false,
                 20, "1");
-        DriverD driverD = new DriverD("Volodia",
+        DriverD driverD = new DriverD("Petr",
                 false,
                 20, "1");
 
@@ -104,23 +104,48 @@ public class Main {
         System.out.println(kamaz3.getEngineCapacity());
         checkTransport(kamaz2);
         luaz.printNameDriverNameMechanic();
-        ServiceStation  nik = new ServiceStation();
+        ServiceStation nik = new ServiceStation();
         nik.addTransport(luna);
         nik.addTransport(kamaz1);
         nik.addTransport(lada1);
         nik.carryOutATechnicalInspection();
-        Set <Driver> drivers = new HashSet<>();
+        /**
+         * Продолжим работать с приложением для автогонок.
+         *
+         * Создайте множество (в реализации
+         * HashSet
+         * ), состоящее из водителей, таким образом, чтобы, в случае добавления одного и того же водителя в базу данных два раза, в консоль информация выводилась без повторов.
+         * Затем выведите всех водителей в консоль с помощью итератора.
+         */
+        System.out.println("Работа с колекцией SET");
+
+        Set<Driver> drivers = new HashSet<>();
         drivers.add(driverB);
         drivers.add(driverC);
         drivers.add(driverD);
         drivers.add(driverB);
         drivers.add(driverB);
+        Iterator<Driver> iterator = drivers.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
         System.out.println(Arrays.toString(drivers.toArray()));
 
+        System.out.println("Работа с колекцией MAP");
 
+        Map<Transport, List<Mechanics>> mechanicsMap = new HashMap<>();
+        mechanicsMap.put(lada, lada.getMechanicsList());
+        mechanicsMap.put(luaz, luaz.getMechanicsList());
+        mechanicsMap.put(lada, lada.getMechanicsList());
+        mechanicsMap.put(lada, lada.getMechanicsList());
 
+        for (Map.Entry<Transport, List<Mechanics>> name : mechanicsMap.entrySet()) {
+            System.out.println("Name Transport " + name.getKey() + " Name Mechanics " + name.getValue());
+        }
 
     }
+
 
     public static void checkTransport(Transport... transports) {
         for (Transport transport : transports) {

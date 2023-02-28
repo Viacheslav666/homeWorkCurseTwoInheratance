@@ -20,6 +20,10 @@ public abstract class Transport<T extends Driver> implements Competingoable {
         this.mechanicsList = mechanicsList;
     }
 
+    public Transport(List<Mechanics> mechanicsList) {
+        this.mechanicsList = mechanicsList;
+    }
+
 
     abstract boolean passDiagnostics() throws TransportTypeExeption;
 
