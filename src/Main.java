@@ -103,6 +103,7 @@ public class Main {
         lada.printType();
         System.out.println(kamaz3.getEngineCapacity());
         checkTransport(kamaz2);
+
         luaz.printNameDriverNameMechanic();
         ServiceStation nik = new ServiceStation();
         nik.addTransport(luna);
@@ -140,11 +141,29 @@ public class Main {
         mechanicsMap.put(lada, lada.getMechanicsList());
         mechanicsMap.put(lada, lada.getMechanicsList());
 
+
         for (Map.Entry<Transport, List<Mechanics>> name : mechanicsMap.entrySet()) {
             System.out.println("Name Transport " + name.getKey() + " Name Mechanics " + name.getValue());
         }
 
-    }
+int[] arr = new int[3];
+arr[0]= 1;
+arr[1]= 2;
+arr[2]= 3;
+
+            int max = arr[0];
+            for (int i = 0; i < arr.length; i++) {
+                if(max<arr[i]){
+                    max = arr[i];
+                }
+            }
+        System.out.println(max);
+        }
+
+
+
+
+
 
 
     public static void checkTransport(Transport... transports) {
