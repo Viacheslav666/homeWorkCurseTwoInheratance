@@ -1,6 +1,8 @@
 package Drivers;
 import Util.UtilClass.*;
 
+import java.util.Objects;
+
 import static Util.UtilClass.checkingError;
 import static Util.UtilClass.checkingErrorInt;
 
@@ -43,5 +45,18 @@ public abstract class Driver {
                 ", Лицензия " + havingADriverLicense +
                 ", Стаж " + experience +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver driver = (Driver) o;
+        return havingADriverLicense == driver.havingADriverLicense && experience == driver.experience && Objects.equals(nameDriver, driver.nameDriver);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameDriver, havingADriverLicense, experience);
     }
 }

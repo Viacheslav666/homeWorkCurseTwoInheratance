@@ -3,6 +3,7 @@ import Util.UtilClass;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Transport<T extends Driver> implements Competingoable {
     public String brand;
@@ -17,6 +18,23 @@ public abstract class Transport<T extends Driver> implements Competingoable {
         this.model = UtilClass.checkingError(model, "default");
         this.engineCapacity = UtilClass.checkingErrorInt(engineCapacity, 96);
         setDriver(driver);
+        this.mechanicsList = mechanicsList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return engineCapacity == transport.engineCapacity && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model) && Objects.equals(driver, transport.driver) && Objects.equals(mechanicsList, transport.mechanicsList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineCapacity, driver, mechanicsList);
+    }
+
+    public Transport(List<Mechanics> mechanicsList) {
         this.mechanicsList = mechanicsList;
     }
 

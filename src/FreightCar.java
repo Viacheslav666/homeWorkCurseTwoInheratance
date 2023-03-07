@@ -49,7 +49,7 @@ public class FreightCar extends Transport<DriverD> {
 
     @Override
     public String getBrand() {
-        return brand;
+        return getBrand();
     }
 
     @Override
